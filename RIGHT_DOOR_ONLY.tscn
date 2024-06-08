@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://dusyrbbm2cle6"]
+[gd_scene load_steps=6 format=3 uid="uid://dusyrbbm2cle6"]
 
-[ext_resource type="Script" path="res://RIGHT DOOR.gd" id="1_ernrj"]
 [ext_resource type="Texture2D" uid="uid://d1w5uf2ixyh4q" path="res://RIGHT_DOOR_ONLY.png" id="2_vghls"]
 [ext_resource type="Texture2D" uid="uid://bkx2epnt5ymb7" path="res://basic_dungeon_room.png" id="3_5r6x4"]
 [ext_resource type="PackedScene" uid="uid://cqfaktsu0eir" path="res://door.tscn" id="4_sbm6b"]
@@ -13,7 +12,6 @@ size = Vector2(16, 16)
 
 [node name="RIGHT DOOR" type="Node2D"]
 z_index = -1
-script = ExtResource("1_ernrj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
