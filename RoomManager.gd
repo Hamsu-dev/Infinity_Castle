@@ -25,7 +25,8 @@ func _ready():
 func load_rooms():
 	# Load your room scenes
 	room_scenes[RoomType.NORMAL] = [
-		preload("res://dungeon_room.tscn"),  # Use the same room for all types for testing
+		preload("res://dungeon_room.tscn"),
+		preload("res://3_Doors.tscn")
 	]
 	room_scenes[RoomType.BOSS] = [
 		preload("res://Boss_room.tscn")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1yy4d83uqw5v"]
+[gd_scene load_steps=7 format=3 uid="uid://tf7wohsfkape"]
 
-[ext_resource type="Texture2D" uid="uid://bkx2epnt5ymb7" path="res://basic_dungeon_room.png" id="1_ag24f"]
-[ext_resource type="Script" path="res://dungeon_room.gd" id="1_p6ljq"]
-[ext_resource type="PackedScene" uid="uid://cqfaktsu0eir" path="res://door.tscn" id="3_evdic"]
+[ext_resource type="Script" path="res://dungeon_room.gd" id="1_db5on"]
+[ext_resource type="Texture2D" uid="uid://c0vj25xdqlupq" path="res://3_Doors.png" id="2_gp1r6"]
+[ext_resource type="Texture2D" uid="uid://bkx2epnt5ymb7" path="res://basic_dungeon_room.png" id="3_jhdnp"]
+[ext_resource type="PackedScene" uid="uid://cqfaktsu0eir" path="res://door.tscn" id="4_uagxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecl6m"]
 size = Vector2(224, 112)
@@ -12,23 +13,23 @@ size = Vector2(16, 16)
 
 [node name="DungeonRoom" type="Node2D"]
 z_index = -1
-script = ExtResource("1_p6ljq")
+script = ExtResource("1_db5on")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
-texture = ExtResource("1_ag24f")
+texture = ExtResource("2_gp1r6")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, 182)
-texture = ExtResource("1_ag24f")
+texture = ExtResource("3_jhdnp")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PackedVector2Array(170, 34, 170, 0, 320, 0, 320, 80, 272, 80, 272, 34)
+polygon = PackedVector2Array(150, 34, 150, 0, 320, 0, 320, 80, 272, 80, 272, 34)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
 polygon = PackedVector2Array(0, 0, 150, 0, 150, 34, 48, 34, 48, 80, 0, 80)
@@ -48,17 +49,7 @@ position = Vector2(160, 90)
 shape = SubResource("RectangleShape2D_ecl6m")
 debug_color = Color(0.984314, 0, 0.329412, 0.419608)
 
-[node name="DoorUp" parent="." instance=ExtResource("3_evdic")]
-position = Vector2(160, 26)
-metadata/_edit_group_ = true
-
-[node name="Marker2D" parent="DoorUp" index="0"]
-position = Vector2(0, -64)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorUp"]
-shape = SubResource("RectangleShape2D_6yqxi")
-
-[node name="DoorLeft" parent="." instance=ExtResource("3_evdic")]
+[node name="DoorLeft" parent="." instance=ExtResource("4_uagxj")]
 position = Vector2(40, 90)
 metadata/_edit_group_ = true
 
@@ -68,7 +59,7 @@ position = Vector2(-92, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLeft"]
 shape = SubResource("RectangleShape2D_6yqxi")
 
-[node name="DoorRight" parent="." instance=ExtResource("3_evdic")]
+[node name="DoorRight" parent="." instance=ExtResource("4_uagxj")]
 position = Vector2(280, 90)
 metadata/_edit_group_ = true
 
@@ -78,7 +69,7 @@ position = Vector2(92, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRight"]
 shape = SubResource("RectangleShape2D_6yqxi")
 
-[node name="DoorDown" parent="." instance=ExtResource("3_evdic")]
+[node name="DoorDown" parent="." instance=ExtResource("4_uagxj")]
 position = Vector2(160, 154)
 metadata/_edit_group_ = true
 
@@ -94,12 +85,10 @@ offset_top = 76.0
 offset_right = 198.0
 offset_bottom = 99.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "4 DOORS
-"
+text = "3 Doors"
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
-[editable path="DoorUp"]
 [editable path="DoorLeft"]
 [editable path="DoorRight"]
 [editable path="DoorDown"]
