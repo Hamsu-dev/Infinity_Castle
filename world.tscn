@@ -20,5 +20,5 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_a5p5p")
 
-[node name="Camera2D2" type="Camera2D" parent="."]
+[node name="WORLD TESTING CAMERA" type="Camera2D" parent="."]
 zoom = Vector2(0.2, 0.2)

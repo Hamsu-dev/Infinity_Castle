@@ -26,7 +26,6 @@ func load_rooms():
 	# Load your room scenes
 	room_scenes[RoomType.NORMAL] = [
 		preload("res://dungeon_room.tscn"),
-		preload("res://3_Doors.tscn")
 	]
 	room_scenes[RoomType.BOSS] = [
 		preload("res://Boss_room.tscn")
@@ -48,12 +47,14 @@ func generate_level():
 
 func place_special_rooms():
 	var boss_position = get_best_empty_position()
-	grid[boss_position] = RoomType.BOSS
-	add_room(boss_position, RoomType.BOSS)
+	if boss_position != null:
+		grid[boss_position] = RoomType.BOSS
+		add_room(boss_position, RoomType.BOSS)
 
 	var shop_position = get_best_empty_position()
-	grid[shop_position] = RoomType.SHOP
-	add_room(shop_position, RoomType.SHOP)
+	if shop_position != null:
+		grid[shop_position] = RoomType.SHOP
+		add_room(shop_position, RoomType.SHOP)
 
 func fill_with_normal_rooms():
 	while rooms.size() < MAX_ROOMS:
@@ -94,8 +95,8 @@ func connect_doors(position, room_instance):
 				connect_door(door, neighbor_door)
 
 func connect_door(door, neighbor_door):
-	door.visible = false
-	neighbor_door.visible = false
+	door.visible = true
+	neighbor_door.visible = true
 
 func get_best_empty_position():
 	var best_positions = []
@@ -105,7 +106,6 @@ func get_best_empty_position():
 			if !grid.has(new_pos):
 				best_positions.append(new_pos)
 	return best_positions[randi() % best_positions.size()] if best_positions.size() > 0 else null
-
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):

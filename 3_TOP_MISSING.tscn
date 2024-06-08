@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://tf7wohsfkape"]
 
-[ext_resource type="Script" path="res://dungeon_room.gd" id="1_db5on"]
-[ext_resource type="Texture2D" uid="uid://c0vj25xdqlupq" path="res://3_Doors.png" id="2_gp1r6"]
-[ext_resource type="Texture2D" uid="uid://bkx2epnt5ymb7" path="res://basic_dungeon_room.png" id="3_jhdnp"]
-[ext_resource type="PackedScene" uid="uid://cqfaktsu0eir" path="res://door.tscn" id="4_uagxj"]
+[ext_resource type="Script" path="res://dungeon_room.gd" id="1_puwm0"]
+[ext_resource type="Texture2D" uid="uid://c0vj25xdqlupq" path="res://3_Doors_Top_Missing.png" id="2_lrsxr"]
+[ext_resource type="Texture2D" uid="uid://bkx2epnt5ymb7" path="res://basic_dungeon_room.png" id="3_l3208"]
+[ext_resource type="PackedScene" uid="uid://cqfaktsu0eir" path="res://door.tscn" id="4_ku4f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecl6m"]
 size = Vector2(224, 112)
@@ -13,17 +13,17 @@ size = Vector2(16, 16)
 
 [node name="DungeonRoom" type="Node2D"]
 z_index = -1
-script = ExtResource("1_db5on")
+script = ExtResource("1_puwm0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
-texture = ExtResource("2_gp1r6")
+texture = ExtResource("2_lrsxr")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, 182)
-texture = ExtResource("3_jhdnp")
+texture = ExtResource("3_l3208")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
@@ -49,7 +49,7 @@ position = Vector2(160, 90)
 shape = SubResource("RectangleShape2D_ecl6m")
 debug_color = Color(0.984314, 0, 0.329412, 0.419608)
 
-[node name="DoorLeft" parent="." instance=ExtResource("4_uagxj")]
+[node name="DoorLeft" parent="." instance=ExtResource("4_ku4f1")]
 position = Vector2(40, 90)
 metadata/_edit_group_ = true
 
@@ -59,7 +59,7 @@ position = Vector2(-92, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLeft"]
 shape = SubResource("RectangleShape2D_6yqxi")
 
-[node name="DoorRight" parent="." instance=ExtResource("4_uagxj")]
+[node name="DoorRight" parent="." instance=ExtResource("4_ku4f1")]
 position = Vector2(280, 90)
 metadata/_edit_group_ = true
 
@@ -69,7 +69,7 @@ position = Vector2(92, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRight"]
 shape = SubResource("RectangleShape2D_6yqxi")
 
-[node name="DoorDown" parent="." instance=ExtResource("4_uagxj")]
+[node name="DoorDown" parent="." instance=ExtResource("4_ku4f1")]
 position = Vector2(160, 154)
 metadata/_edit_group_ = true
 
@@ -85,7 +85,7 @@ offset_top = 76.0
 offset_right = 198.0
 offset_bottom = 99.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "3 Doors"
+text = "3 Doors TOP "
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
