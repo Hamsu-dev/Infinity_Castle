@@ -10,7 +10,7 @@ size = Vector2(224, 112)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6yqxi"]
 size = Vector2(16, 16)
 
-[node name="DungeonRoom" type="Node2D"]
+[node name="FOUR DOORS" type="Node2D"]
 z_index = -1
 script = ExtResource("1_p6ljq")
 

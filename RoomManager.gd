@@ -26,12 +26,16 @@ func load_rooms():
 	# Load your room scenes
 	room_scenes[RoomType.NORMAL] = [
 		preload("res://dungeon_room.tscn"),
+		preload("res://3_BOTTOM_MISSING.tscn"),
+		preload("res://3_TOP_MISSING.tscn"),
+		preload("res://3_LEFT_MISSING.tscn"),
+		preload("res://3_RIGHT_MISSING.tscn"),
 	]
 	room_scenes[RoomType.BOSS] = [
-		preload("res://Boss_room.tscn")
+		preload("res://dungeon_room.tscn")
 	]
 	room_scenes[RoomType.SHOP] = [
-		preload("res://shop_room.tscn")
+		preload("res://dungeon_room.tscn")
 	]
 
 func generate_level():
