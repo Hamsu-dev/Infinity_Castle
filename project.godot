@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Infinity Castle"
-run/main_scene="res://world.tscn"
+run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://events.gd"
+Events="*res://Scripts/events.gd"
 
 [display]
 

@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs3141amqrdd0"]
+
+[ext_resource type="Texture2D" uid="uid://7hm3k1b1nkim" path="res://PNG/TOP_DOOR_ONLY.png" id="2_gc8th"]
+[ext_resource type="Texture2D" uid="uid://bkx2epnt5ymb7" path="res://PNG/basic_dungeon_room.png" id="3_ycpwc"]
+[ext_resource type="PackedScene" uid="uid://cqfaktsu0eir" path="res://Scenes/door.tscn" id="4_mr8bx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecl6m"]
+size = Vector2(224, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yqxi"]
+size = Vector2(16, 16)
+
+[node name="TOP DOOR" type="Node2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("2_gc8th")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 182)
+texture = ExtResource("3_ycpwc")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(170, 34, 170, 0, 320, 0, 320, 100, 271, 100, 272, 34)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 0, 150, 0, 150, 34, 48, 34, 47, 100, 0, 100)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 100, 48, 100, 48, 146, 170, 146, 170, 180, 0, 180)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(170, 146, 272, 146, 272, 100, 320, 100, 320, 180, 170, 180)
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(160, 90)
+shape = SubResource("RectangleShape2D_ecl6m")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="DoorUp" parent="." instance=ExtResource("4_mr8bx")]
+position = Vector2(160, 26)
+metadata/_edit_group_ = true
+
+[node name="Marker2D" parent="DoorUp" index="0"]
+position = Vector2(0, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorUp"]
+shape = SubResource("RectangleShape2D_6yqxi")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 91.0
+offset_top = 77.0
+offset_right = 222.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TOP DOOR ONLY
+"
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+
+[editable path="DoorUp"]
