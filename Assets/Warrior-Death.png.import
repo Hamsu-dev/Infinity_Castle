@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0vj25xdqlupq"
-path="res://.godot/imported/3_Doors_Top_Missing.png-5834b5cb2f262bb51b420e7e2f938faf.ctex"
+uid="uid://ch0551hxhmacd"
+path="res://.godot/imported/Warrior-Death.png-ef9c40cd9dc6677845f7ea801e865a92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/3_Doors_Top_Missing.png"
-dest_files=["res://.godot/imported/3_Doors_Top_Missing.png-5834b5cb2f262bb51b420e7e2f938faf.ctex"]
+source_file="res://Assets/Warrior-Death.png"
+dest_files=["res://.godot/imported/Warrior-Death.png-ef9c40cd9dc6677845f7ea801e865a92.ctex"]
 
 [params]
 

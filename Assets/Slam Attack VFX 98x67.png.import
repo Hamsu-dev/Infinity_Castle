@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1w5uf2ixyh4q"
-path="res://.godot/imported/RIGHT_DOOR_ONLY.png-47fc45a4593016880d12eab45d3f4bb2.ctex"
+uid="uid://cpq7e6nvlnndx"
+path="res://.godot/imported/Slam Attack VFX 98x67.png-8d9639e99eb85825883f6edcd561e633.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/RIGHT_DOOR_ONLY.png"
-dest_files=["res://.godot/imported/RIGHT_DOOR_ONLY.png-47fc45a4593016880d12eab45d3f4bb2.ctex"]
+source_file="res://Assets/Slam Attack VFX 98x67.png"
+dest_files=["res://.godot/imported/Slam Attack VFX 98x67.png-8d9639e99eb85825883f6edcd561e633.ctex"]
 
 [params]
 

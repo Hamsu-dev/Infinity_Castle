@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyjjvndq5jlpg"
-path="res://.godot/imported/3_Doors_Bottom_Missing.png-21b4cd0829e62496e718d73b0f981a8d.ctex"
+path="res://.godot/imported/3_Doors_Bottom_Missing.png-f13566dd142f73567eef36e7bd1f4029.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/3_Doors_Bottom_Missing.png"
-dest_files=["res://.godot/imported/3_Doors_Bottom_Missing.png-21b4cd0829e62496e718d73b0f981a8d.ctex"]
+source_file="res://Room PNG/3_Doors_Bottom_Missing.png"
+dest_files=["res://.godot/imported/3_Doors_Bottom_Missing.png-f13566dd142f73567eef36e7bd1f4029.ctex"]
 
 [params]
 

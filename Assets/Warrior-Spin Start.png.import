@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkx2epnt5ymb7"
-path="res://.godot/imported/basic_dungeon_room.png-d8b1b298598f98aa6f5be819932a3697.ctex"
+uid="uid://cn1b6348yu0y0"
+path="res://.godot/imported/Warrior-Spin Start.png-2d3f28f4b2cb5110c7d57cd8b12c4488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/basic_dungeon_room.png"
-dest_files=["res://.godot/imported/basic_dungeon_room.png-d8b1b298598f98aa6f5be819932a3697.ctex"]
+source_file="res://Assets/Warrior-Spin Start.png"
+dest_files=["res://.godot/imported/Warrior-Spin Start.png-2d3f28f4b2cb5110c7d57cd8b12c4488.ctex"]
 
 [params]
 

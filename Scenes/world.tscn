@@ -1,24 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://t56lfg0dlwoy"]
 
 [ext_resource type="Script" path="res://Scripts/RoomManager.gd" id="2_0ix1h"]
-[ext_resource type="PackedScene" uid="uid://cw52pjafwsev1" path="res://Scenes/player.tscn" id="2_mpfnx"]
+[ext_resource type="PackedScene" uid="uid://bogo3trhwiksx" path="res://Scenes/player.tscn" id="2_mpfnx"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_a5p5p"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_mpfnx")]
-position = Vector2(160, 96)
-motion_mode = 1
+position = Vector2(155, 81)
 
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource("2_0ix1h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_a5p5p")
 
 [node name="WORLD TESTING CAMERA" type="Camera2D" parent="."]
+enabled = false
 zoom = Vector2(0.2, 0.2)

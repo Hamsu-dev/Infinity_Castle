@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4m7cs56fdgbw"
-path="res://.godot/imported/LEFT_DOOR_ONLY.png-a715f55fb4602121c18657d4e6b0e500.ctex"
+uid="uid://c0k15njwt3lop"
+path="res://.godot/imported/2_door_up_right.png-9bc37dd34bba398f6f506e95569f5cac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/LEFT_DOOR_ONLY.png"
-dest_files=["res://.godot/imported/LEFT_DOOR_ONLY.png-a715f55fb4602121c18657d4e6b0e500.ctex"]
+source_file="res://Room PNG/2_door_up_right.png"
+dest_files=["res://.godot/imported/2_door_up_right.png-9bc37dd34bba398f6f506e95569f5cac.ctex"]
 
 [params]
 

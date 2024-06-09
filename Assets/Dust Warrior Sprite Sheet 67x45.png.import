@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp5nnhm1gc2bt"
-path="res://.godot/imported/wizard.png-11e2f3f39711ac6362f5085434f9a5db.ctex"
+uid="uid://c8m54k5ryo4g4"
+path="res://.godot/imported/Dust Warrior Sprite Sheet 67x45.png-eb9c448ac85a4f1949ea153ce281901b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/wizard.png"
-dest_files=["res://.godot/imported/wizard.png-11e2f3f39711ac6362f5085434f9a5db.ctex"]
+source_file="res://Assets/Dust Warrior Sprite Sheet 67x45.png"
+dest_files=["res://.godot/imported/Dust Warrior Sprite Sheet 67x45.png-eb9c448ac85a4f1949ea153ce281901b.ctex"]
 
 [params]
 

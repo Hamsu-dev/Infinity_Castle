@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://sh5nkkrgq6k8"]
+[gd_scene load_steps=7 format=3 uid="uid://sh5nkkrgq6k8"]
 
-[ext_resource type="Texture2D" uid="uid://dsh4j0tn34mc" path="res://PNG/BOTTOM_DOOR_ONLY.png" id="2_ttp7l"]
-[ext_resource type="Texture2D" uid="uid://bkx2epnt5ymb7" path="res://PNG/basic_dungeon_room.png" id="3_jgdph"]
+[ext_resource type="Script" path="res://Scripts/dungeon_room.gd" id="1_d05sg"]
+[ext_resource type="Texture2D" uid="uid://dsh4j0tn34mc" path="res://Room PNG/BOTTOM_DOOR_ONLY.png" id="2_i52tf"]
+[ext_resource type="Texture2D" uid="uid://bkx2epnt5ymb7" path="res://Room PNG/basic_dungeon_room.png" id="3_g4jtj"]
 [ext_resource type="PackedScene" uid="uid://cqfaktsu0eir" path="res://Scenes/door.tscn" id="4_168w3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecl6m"]
@@ -12,16 +13,17 @@ size = Vector2(16, 16)
 
 [node name="BOTTOM DOOR" type="Node2D"]
 z_index = -1
+script = ExtResource("1_d05sg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
-texture = ExtResource("2_ttp7l")
+texture = ExtResource("2_i52tf")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, 182)
-texture = ExtResource("3_jgdph")
+texture = ExtResource("3_g4jtj")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
