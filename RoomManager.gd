@@ -30,12 +30,22 @@ func load_rooms():
 		preload("res://3_TOP_MISSING.tscn"),
 		preload("res://3_LEFT_MISSING.tscn"),
 		preload("res://3_RIGHT_MISSING.tscn"),
+		preload("res://2_DOOR_LEFT_BOTTOM.tscn"),
+		preload("res://2_DOOR_RIGHT_BOTTOM.tscn"),
+		preload("res://2_DOOR_TOP_LEFT.tscn"),
+		preload("res://2_Door_UP_RIGHT.tscn"),
+		preload("res://2_LEFT_RIGHT.tscn"),
+		preload("res://2_door_up_down.tscn"),
+		preload("res://TOP_DOOR_ONLY.tscn"),
+		preload("res://BOTTOM_DOOR_ONLY.tscn"),
+		preload("res://LEFT_DOOR_ONLY.tscn"),
+		preload("res://RIGHT_DOOR_ONLY.tscn"),
 	]
 	room_scenes[RoomType.BOSS] = [
-		preload("res://dungeon_room.tscn")
+		preload("res://BOTTOM_DOOR_ONLY.tscn")
 	]
 	room_scenes[RoomType.SHOP] = [
-		preload("res://dungeon_room.tscn")
+		preload("res://BOTTOM_DOOR_ONLY.tscn")
 	]
 
 func generate_level():
@@ -48,6 +58,9 @@ func generate_level():
 
 	# Fill remaining spaces with normal rooms up to the maximum number of rooms
 	fill_with_normal_rooms()
+
+	# Validate and remove invalid doors
+	validate_doors()
 
 func place_special_rooms():
 	var boss_position = get_best_empty_position()
@@ -101,6 +114,23 @@ func connect_doors(position, room_instance):
 func connect_door(door, neighbor_door):
 	door.visible = true
 	neighbor_door.visible = true
+
+func validate_doors():
+	var directions = {
+		Vector2(1, 0): "DoorLeft",
+		Vector2(-1, 0): "DoorRight",
+		Vector2(0, 1): "DoorUp",
+		Vector2(0, -1): "DoorDown"
+	}
+	
+	for position in grid.keys():
+		var room_instance = grid[position]
+		for direction in directions.keys():
+			var neighbor_pos = position + direction
+			if !grid.has(neighbor_pos):
+				if room_instance.has_node(directions[direction]):
+					var door = room_instance.get_node(directions[direction])
+					door.queue_free()  # Remove the door
 
 func get_best_empty_position():
 	var best_positions = []
