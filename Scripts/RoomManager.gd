@@ -33,7 +33,7 @@ var room_data = {
 	"2_DOOR_RIGHT_BOTTOM": { "scene": preload("res://Doors/2_DOOR_RIGHT_BOTTOM.tscn"), "doors": [DoorPosition.UP, DoorPosition.LEFT] },
 	"2_DOOR_TOP_LEFT": { "scene": preload("res://Doors/2_DOOR_TOP_LEFT.tscn"), "doors": [DoorPosition.DOWN, DoorPosition.RIGHT] },
 	"2_Door_UP_RIGHT": { "scene": preload("res://Doors/2_Door_UP_RIGHT.tscn"), "doors": [DoorPosition.DOWN, DoorPosition.LEFT] },
-	"2_LEFT_RIGHT": { "scene": preload("res://Doors/2_LEFT_RIGHT.tscn"), "doors": [DoorPosition.LEFT, DoorPosition.RIGHT] },
+	"2_LEFT_RIGHT": { "scene": preload("res://Doors/2_DOOR_LEFT_RIGHT.tscn"), "doors": [DoorPosition.LEFT, DoorPosition.RIGHT] },
 	"2_door_up_down": { "scene": preload("res://Doors/2_door_up_down.tscn"), "doors": [DoorPosition.UP, DoorPosition.DOWN] },
 	"TOP_DOOR_ONLY": { "scene": preload("res://Doors/TOP_DOOR_ONLY.tscn"), "doors": [DoorPosition.UP] },
 	"BOTTOM_DOOR_ONLY": { "scene": preload("res://Doors/BOTTOM_DOOR_ONLY.tscn"), "doors": [DoorPosition.DOWN] },
@@ -51,18 +51,8 @@ func generate_level():
 	var start_position = Vector2(0, 0)
 	add_room(start_position, "dungeon_room")
 	
-	place_special_rooms()
 	fill_with_normal_rooms()
 	validate_and_adjust_rooms()
-
-func place_special_rooms():
-	var boss_position = get_best_empty_position()
-	if boss_position != null:
-		add_room(boss_position, "dungeon_room")
-
-	var shop_position = get_best_empty_position()
-	if shop_position != null:
-		add_room(shop_position, "dungeon_room")
 
 func fill_with_normal_rooms():
 	while rooms.size() < MAX_ROOMS:
@@ -110,12 +100,45 @@ func validate_and_adjust_rooms():
 	for position in grid.keys():
 		var room_instance = grid[position]
 		var room_doors = get_doors(room_instance)
+		var invalid_doors = []
 		for direction in directions.keys():
 			var neighbor_pos = position + directions[direction]
 			if !grid.has(neighbor_pos) and direction in room_doors:
-				var door = room_instance.get_node(door_name(direction))
-				if door:
-					door.queue_free()
+				invalid_doors.append(direction)
+		
+		if invalid_doors.size() > 0:
+			replace_with_edge_room(position, room_instance, invalid_doors)
+
+func replace_with_edge_room(position, room_instance, invalid_doors):
+	# Remove invalid doors for edge rooms
+	var valid_doors = get_doors(room_instance).duplicate()
+	for invalid_door in invalid_doors:
+		if invalid_door in valid_doors:
+			valid_doors.erase(invalid_door)
+			print("Removed invalid door %s at position %s" % [invalid_door, position])
+
+	var edge_room_scene = get_room_scene_for_doors(valid_doors)
+	if edge_room_scene != null:
+		var edge_room_instance = edge_room_scene.instantiate()
+		edge_room_instance.position = room_instance.position
+		
+		# Ensure the room_instance is still a child before removing it
+		if room_instance.get_parent() == self:
+			remove_child(room_instance)
+			print("Removed room at position %s" % position)
+		
+		add_child(edge_room_instance)
+		grid[position] = edge_room_instance
+		print("Replaced room at position %s with edge room" % position)
+
+func get_room_scene_for_doors(doors):
+	doors.sort()
+	for room_key in room_data.keys():
+		var sorted_doors = room_data[room_key]["doors"].duplicate()
+		sorted_doors.sort()
+		if sorted_doors == doors:
+			return room_data[room_key]["scene"]
+	return room_data["dungeon_room"]["scene"]  # Default to dungeon_room with all doors
 
 func direction_to_vector(direction):
 	return directions[direction]
